@@ -1,19 +1,21 @@
 {
-  "name": "banners",
+  "name": "build-banners",
   "version": "1.0.0",
-  "description": "",
+  "description": "Build minified, optimized HTML5 banners",
+  "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "node webpack.config.js"
+    "build": "node webpack.build.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "reeddunkle",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
+    "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
     "prettier": "2.0.2",
     "purgecss-webpack-plugin": "^2.1.0",
