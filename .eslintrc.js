@@ -1,10 +1,13 @@
 module.exports = {
   extends: [
-    "prettier" // [RD] Keep Prettier last
+    'prettier', // [RD] Keep Prettier last
   ],
-  plugins: ["prettier"],
-  rules: {
-    semi: ["error", "always"],
-    quotes: ["error", "double"]
-  }
+  env: {
+    node: true,
+    browser: true,
+  },
+  parserOptions: {
+    ecmaVersion: 6,
+  },
+  rules: {},
 };

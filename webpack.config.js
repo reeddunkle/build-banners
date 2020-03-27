@@ -1,12 +1,12 @@
-const path = require("path");
-const glob = require("glob");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const PurgecssPlugin = require("purgecss-webpack-plugin");
+const path = require('path');
+const glob = require('glob');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 /* Util */
 
-const stripQuotes = (str = "") => {
-  return str.replace(/['"]+/g, "");
+const stripQuotes = (str = '') => {
+  return str.replace(/['"]+/g, '');
 };
 
 function getEntryName() {
@@ -19,10 +19,10 @@ function getEntryName() {
 const BANNER_PATH = path.join(__dirname, getEntryName());
 
 module.exports = {
-  entry: path.resolve(ROOT_PATH, "default.js"),
+  entry: path.resolve(ROOT_PATH, 'default.js'),
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "default.js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'default.js',
   },
   module: {
     rules: [
@@ -30,24 +30,24 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
+          'css-loader',
+          'postcss-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
-              implementation: require("sass")
-            }
-          }
-        ]
-      }
-    ]
+              implementation: require('sass'),
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "default.css"
+      filename: 'default.css',
     }),
     new PurgecssPlugin({
-      paths: glob.sync(`${BANNER_PATH}/**/*`, { nodir: true })
-    })
-  ]
+      paths: glob.sync(`${BANNER_PATH}/**/*`, { nodir: true }),
+    }),
+  ],
 };
